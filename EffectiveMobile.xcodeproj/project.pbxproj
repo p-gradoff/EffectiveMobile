@@ -6,6 +6,29 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		37CE0A312CE5F2F500D6CABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CE0A282CE5F2F500D6CABC /* Assets.xcassets */; };
+		37CE0A332CE5F2F500D6CABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CE0A2C2CE5F2F500D6CABC /* LaunchScreen.storyboard */; };
+		37CE0A342CE5F2F500D6CABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */; };
+		37CE0A362CE5F2F500D6CABC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */; };
+		37CE0A372CE5F2F500D6CABC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */; };
+		37CE0A422CE6000D00D6CABC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A402CE6000D00D6CABC /* Task.swift */; };
+		37CE0A432CE6000D00D6CABC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A402CE6000D00D6CABC /* Task.swift */; };
+		37CE0A462CE6003900D6CABC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A452CE6003900D6CABC /* StorageManager.swift */; };
+		37CE0A472CE6003900D6CABC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A452CE6003900D6CABC /* StorageManager.swift */; };
+		37CE0A502CE6069A00D6CABC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A4F2CE6069A00D6CABC /* Model.swift */; };
+		37CE0A582CE6137B00D6CABC /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A572CE6137B00D6CABC /* TaskListView.swift */; };
+		37CE0A5A2CE6139B00D6CABC /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A592CE6139B00D6CABC /* TaskTableViewCell.swift */; };
+		37CE0A5C2CE613B500D6CABC /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A5B2CE613B500D6CABC /* TaskListPresenter.swift */; };
+		37CE0A5E2CE613BE00D6CABC /* TaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A5D2CE613BE00D6CABC /* TaskListInteractor.swift */; };
+		37CE0A602CE613C900D6CABC /* TaskListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A5F2CE613C900D6CABC /* TaskListRouter.swift */; };
+		37CE0A632CE6147800D6CABC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A622CE6147800D6CABC /* NetworkManager.swift */; };
+		37CE0A672CE6193500D6CABC /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A662CE6193500D6CABC /* LaunchManager.swift */; };
+		37CE0A682CE6193500D6CABC /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A662CE6193500D6CABC /* LaunchManager.swift */; };
+		37CE0A6B2CE6221100D6CABC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A6A2CE6221100D6CABC /* Extension.swift */; };
+		37CE0A6D2CE625D900D6CABC /* NoteListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A6C2CE625D900D6CABC /* NoteListConfigurator.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		37CE0A082CE5F28400D6CABC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,27 +50,27 @@
 		37CE09EE2CE5F28100D6CABC /* EffectiveMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectiveMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CE0A072CE5F28400D6CABC /* EffectiveMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EffectiveMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CE0A112CE5F28400D6CABC /* EffectiveMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EffectiveMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		37CE0A282CE5F2F500D6CABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37CE0A2A2CE5F2F500D6CABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CE0A2B2CE5F2F500D6CABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37CE0A402CE6000D00D6CABC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		37CE0A452CE6003900D6CABC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		37CE0A4F2CE6069A00D6CABC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		37CE0A572CE6137B00D6CABC /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		37CE0A592CE6139B00D6CABC /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		37CE0A5B2CE613B500D6CABC /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
+		37CE0A5D2CE613BE00D6CABC /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
+		37CE0A5F2CE613C900D6CABC /* TaskListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRouter.swift; sourceTree = "<group>"; };
+		37CE0A622CE6147800D6CABC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		37CE0A662CE6193500D6CABC /* LaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
+		37CE0A6A2CE6221100D6CABC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		37CE0A6C2CE625D900D6CABC /* NoteListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		37CE0A192CE5F28400D6CABC /* Exceptions for "EffectiveMobile" folder in "EffectiveMobile" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 37CE09ED2CE5F28100D6CABC /* EffectiveMobile */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		37CE09F02CE5F28100D6CABC /* EffectiveMobile */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				37CE0A192CE5F28400D6CABC /* Exceptions for "EffectiveMobile" folder in "EffectiveMobile" target */,
-			);
-			path = EffectiveMobile;
-			sourceTree = "<group>";
-		};
 		37CE0A0A2CE5F28400D6CABC /* EffectiveMobileTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = EffectiveMobileTests;
@@ -88,7 +111,7 @@
 		37CE09E52CE5F28100D6CABC = {
 			isa = PBXGroup;
 			children = (
-				37CE09F02CE5F28100D6CABC /* EffectiveMobile */,
+				37CE0A2F2CE5F2F500D6CABC /* EffectiveMobile */,
 				37CE0A0A2CE5F28400D6CABC /* EffectiveMobileTests */,
 				37CE0A142CE5F28400D6CABC /* EffectiveMobileUITests */,
 				37CE09EF2CE5F28100D6CABC /* Products */,
@@ -105,6 +128,135 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		37CE0A262CE5F2F500D6CABC /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A562CE6136600D6CABC /* View */,
+				37CE0A552CE6136000D6CABC /* Interactor */,
+				37CE0A542CE6135500D6CABC /* Presenter */,
+				37CE0A532CE6134200D6CABC /* Entity */,
+				37CE0A512CE6122C00D6CABC /* Router */,
+				37CE0A6C2CE625D900D6CABC /* NoteListConfigurator.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		37CE0A2F2CE5F2F500D6CABC /* EffectiveMobile */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A4C2CE605D300D6CABC /* Flows */,
+				37CE0A492CE6023500D6CABC /* Constants */,
+				37CE0A412CE6000D00D6CABC /* Storage */,
+				37CE0A4D2CE6066A00D6CABC /* NetworkService */,
+				37CE0A692CE621FC00D6CABC /* Components */,
+				37CE0A282CE5F2F500D6CABC /* Assets.xcassets */,
+				37CE0A2A2CE5F2F500D6CABC /* Info.plist */,
+				37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */,
+				37CE0A2C2CE5F2F500D6CABC /* LaunchScreen.storyboard */,
+				37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */,
+				37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */,
+			);
+			path = EffectiveMobile;
+			sourceTree = "<group>";
+		};
+		37CE0A412CE6000D00D6CABC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A652CE618AE00D6CABC /* Launcher */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		37CE0A442CE6001A00D6CABC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A402CE6000D00D6CABC /* Task.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		37CE0A492CE6023500D6CABC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		37CE0A4C2CE605D300D6CABC /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A262CE5F2F500D6CABC /* TaskList */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		37CE0A4D2CE6066A00D6CABC /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A4F2CE6069A00D6CABC /* Model.swift */,
+				37CE0A622CE6147800D6CABC /* NetworkManager.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		37CE0A512CE6122C00D6CABC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A5F2CE613C900D6CABC /* TaskListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		37CE0A532CE6134200D6CABC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		37CE0A542CE6135500D6CABC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A5B2CE613B500D6CABC /* TaskListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		37CE0A552CE6136000D6CABC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A5D2CE613BE00D6CABC /* TaskListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		37CE0A562CE6136600D6CABC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A572CE6137B00D6CABC /* TaskListView.swift */,
+				37CE0A592CE6139B00D6CABC /* TaskTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37CE0A652CE618AE00D6CABC /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A452CE6003900D6CABC /* StorageManager.swift */,
+				37CE0A442CE6001A00D6CABC /* Entity */,
+				37CE0A662CE6193500D6CABC /* LaunchManager.swift */,
+			);
+			path = Launcher;
+			sourceTree = "<group>";
+		};
+		37CE0A692CE621FC00D6CABC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				37CE0A6A2CE6221100D6CABC /* Extension.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +271,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				37CE09F02CE5F28100D6CABC /* EffectiveMobile */,
 			);
 			name = EffectiveMobile;
 			packageProductDependencies = (
@@ -225,6 +374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CE0A312CE5F2F500D6CABC /* Assets.xcassets in Resources */,
+				37CE0A332CE5F2F500D6CABC /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +400,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CE0A342CE5F2F500D6CABC /* AppDelegate.swift in Sources */,
+				37CE0A5E2CE613BE00D6CABC /* TaskListInteractor.swift in Sources */,
+				37CE0A5C2CE613B500D6CABC /* TaskListPresenter.swift in Sources */,
+				37CE0A632CE6147800D6CABC /* NetworkManager.swift in Sources */,
+				37CE0A362CE5F2F500D6CABC /* SceneDelegate.swift in Sources */,
+				37CE0A5A2CE6139B00D6CABC /* TaskTableViewCell.swift in Sources */,
+				37CE0A6D2CE625D900D6CABC /* NoteListConfigurator.swift in Sources */,
+				37CE0A372CE5F2F500D6CABC /* ViewController.swift in Sources */,
+				37CE0A502CE6069A00D6CABC /* Model.swift in Sources */,
+				37CE0A602CE613C900D6CABC /* TaskListRouter.swift in Sources */,
+				37CE0A6B2CE6221100D6CABC /* Extension.swift in Sources */,
+				37CE0A672CE6193500D6CABC /* LaunchManager.swift in Sources */,
+				37CE0A472CE6003900D6CABC /* StorageManager.swift in Sources */,
+				37CE0A422CE6000D00D6CABC /* Task.swift in Sources */,
+				37CE0A582CE6137B00D6CABC /* TaskListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +422,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CE0A462CE6003900D6CABC /* StorageManager.swift in Sources */,
+				37CE0A682CE6193500D6CABC /* LaunchManager.swift in Sources */,
+				37CE0A432CE6000D00D6CABC /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +450,17 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		37CE0A2C2CE5F2F500D6CABC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37CE0A2B2CE5F2F500D6CABC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		37CE0A1B2CE5F28400D6CABC /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -294,7 +474,6 @@
 				INFOPLIST_FILE = EffectiveMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +501,6 @@
 				INFOPLIST_FILE = EffectiveMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
