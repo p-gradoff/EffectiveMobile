@@ -20,7 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = ViewController()
+        
+        let viewController = ViewController()
+        let rootViewController = TaskListConfigurator.configureTaskListModule()
+        self.window?.rootViewController = rootViewController
         
     }
 

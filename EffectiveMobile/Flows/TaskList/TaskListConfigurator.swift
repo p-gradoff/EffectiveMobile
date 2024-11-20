@@ -19,7 +19,7 @@ final class TaskListConfigurator {
         
         view.output = presenter
         interactor.output = presenter
-        // routing
+        router.rootViewController = view
         
         return view
     }

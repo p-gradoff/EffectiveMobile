@@ -9,22 +9,24 @@ import Foundation
 import CoreData
 
 enum UpdateFormat {
-    case completion(Bool)
+    case completion
     case filling(String)
 }
 
 enum StorageConstant {
     case storageName
     case entityName
-    case sortParameter
+    case sortParameterDate
+    case sortParameterID
     case idPredicate
     
     static func get(_ constant: StorageConstant) -> String {
         switch constant {
-        case .storageName: "tasks"
-        case .entityName: "task"
-        case .sortParameter: "createdAt"
-        case .idPredicate: "id == %@"
+        case .storageName: "Task"
+        case .entityName: "Task"
+        case .sortParameterDate: "createdAt"
+        case .sortParameterID: "id"
+        case .idPredicate: "id == %ld"
         }
     }
 }
@@ -56,11 +58,16 @@ final class StorageManager {
     }
     
     // MARK: - Create new task
-    func createtask(withID id: Int, toDo: String, isCompleted: Bool) {
-        guard let taskDescription = NSEntityDescription.entity(forEntityName: StorageConstant.get(.entityName), in: context) else { return }
+    func createTask(withID id: Int, createdAt date: String, toDo text: String, isCompleted status: Bool) {
+        guard let taskDescription = NSEntityDescription.entity(
+            forEntityName: StorageConstant.get(.entityName),
+            in: context
+        ) else {
+            return
+        }
         
         let task = Task(entity: taskDescription, insertInto: context)
-        task.setupTask(id: id, todo: toDo, completed: isCompleted)
+        task.setupTask(id: id, createdAt: date, todo: text, completed: status)
         
         saveContext()
     }
@@ -68,7 +75,8 @@ final class StorageManager {
     // MARK: - Fetch task by ID
     func fetchTask(byID id: Int) -> Task? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: StorageConstant.get(.entityName))
-        fetchRequest.predicate = NSPredicate(format: StorageConstant.get(.idPredicate), id)
+        let predicate = NSPredicate(format: StorageConstant.get(.idPredicate), id as CLong)
+        fetchRequest.predicate = predicate
         
         let task = (try? context.fetch(fetchRequest) as? [Task])?.first
         return task
@@ -77,30 +85,33 @@ final class StorageManager {
     // MARK: - Fetch tasks and sort by createdAt date
     func fetchTasks() -> [Task] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: StorageConstant.get(.entityName))
-        let sortDesctiptor = NSSortDescriptor(key: StorageConstant.get(.sortParameter), ascending: false)
-        fetchRequest.sortDescriptors = [sortDesctiptor]
+        let sortDesctiptorID = NSSortDescriptor(key: StorageConstant.get(.sortParameterID), ascending: false)
+        let sortDesctiptorDate = NSSortDescriptor(key: StorageConstant.get(.sortParameterDate), ascending: false)
+        fetchRequest.sortDescriptors = [sortDesctiptorDate, sortDesctiptorID]
         
         return (try? context.fetch(fetchRequest) as? [Task]) ?? []
     }
     
     // MARK: - Update task's completion status or to-do string
-    func updateTask(with parameter: UpdateFormat, byID id: Int) {
+    func updateTask(with parameter: UpdateFormat, by id: Int) {
         guard let task = fetchTask(byID: id) else {
             // MARK: - handle this error
             print("no such task")
             return
         }
         
+        print(task.completed)
         switch parameter {
-        case .completion(let isCompleted): task.completed = isCompleted
+        case .completion: task.completed.toggle()
         case .filling(let toDo): task.todo = toDo
         }
+        print(task.completed)
         
         saveContext()
     }
     
     // MARK: - Delete task by ID
-    func removeTask(byID id: Int) {
+    func removeTask(by id: Int) {
         guard let task = fetchTask(byID: id) else {
             // MARK: - handle error
             return

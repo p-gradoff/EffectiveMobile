@@ -16,5 +16,5 @@ struct RawTask: Codable {
     let id: Int
     let todo: String
     let completed: Bool
-    let userID: Int
+    let userId: Int
 }
