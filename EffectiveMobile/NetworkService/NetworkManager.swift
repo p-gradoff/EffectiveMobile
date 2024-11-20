@@ -8,23 +8,23 @@
 import Foundation
 
 protocol NetworkOutput: AnyObject {
-    func doRequest(_ completion: @escaping (Result<RawTaskList, Error>) -> Void)
+    func doRequest(_ completion: @escaping (Result<RawTaskList, NetworkError>) -> Void)
 }
 
-enum NetworkError: Error {
-    case networkError
-    case responseConvertError
-    case serverError
-    case dataError
-    case parseError
+enum NetworkError: String, Error {
+    case networkError = "Network error"
+    case responseError = "Response Error"
+    case serverError = "Server error"
+    case dataError = "Data error"
+    case parseError = "Parsing error"
     
     static func get(_ err: NetworkError) -> String {
         switch err {
-        case .networkError: return "Network error"
-        case .responseConvertError: return "HTTP Response converting Error"
-        case .serverError: return "Server error"
-        case .dataError: return "Data error"
-        case .parseError: return "Parsing error"
+        case .networkError: return "Network error descpiption"
+        case .responseError: return "Response error descpiption"
+        case .serverError: return "Server error descpiption"
+        case .dataError: return "Data error descpiption"
+        case .parseError: return "Parsing error descpiption"
         }
     }
 }
@@ -40,7 +40,7 @@ final class NetworkManager: NetworkOutput {
         return request
     }
     
-    func doRequest(_ completion: @escaping (Result<RawTaskList, Error>) -> Void) {
+    func doRequest(_ completion: @escaping (Result<RawTaskList, NetworkError>) -> Void) {
         let request = formRequest()
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -49,8 +49,8 @@ final class NetworkManager: NetworkOutput {
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(NetworkError.responseConvertError))
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.isSuccess() else {
+                completion(.failure(NetworkError.responseError))
                 return
             }
             

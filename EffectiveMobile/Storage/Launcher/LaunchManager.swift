@@ -11,7 +11,8 @@ struct LaunchManager {
     private static let firstLaunchKey = "First launch"
 
     static func isInitialLaunch() -> Bool {
-        guard let flag = UserDefaults.standard.object(forKey: firstLaunchKey) else {
+        UserDefaults.standard.removeObject(forKey: firstLaunchKey)
+        guard let _ = UserDefaults.standard.object(forKey: firstLaunchKey) else {
             UserDefaults.standard.set(false, forKey: firstLaunchKey)
             return true
         }

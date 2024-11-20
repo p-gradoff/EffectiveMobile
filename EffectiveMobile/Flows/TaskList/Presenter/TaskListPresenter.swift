@@ -26,11 +26,26 @@ final class TaskListPresenter {
 }
 
 extension TaskListPresenter: TaskListViewOutput {
+    
     func getTasks() {
-        // 
+        interactor.getTasksList()
+    }
+    
+    func changeTaskCompletionStatus(by id: Int) {
+        interactor.updateTaskCompletion(by: id)
+    }
+    
+    func goToSelectedTask(_ task: Task) {
+        router.presentSelectedTask(with: task)
     }
 }
 
 extension TaskListPresenter: TaskListInteractorOutput {
+    func sendTasks(from taskList: [Task]) {
+        view.setTableData(with: taskList)
+    }
     
+    func sendError(withMessage: String, title: String) {
+        
+    }
 }
