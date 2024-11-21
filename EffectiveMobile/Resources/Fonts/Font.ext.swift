@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - provides simple way to get custom font
+
 enum FontType: String {
     case regular = "SFUIText-Regular"
     case medium = "SFUIText-Medium"

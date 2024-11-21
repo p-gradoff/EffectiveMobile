@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - provides string from date in type "dd/MM/yy"
 
 extension Date {
     func formatDate() -> String {

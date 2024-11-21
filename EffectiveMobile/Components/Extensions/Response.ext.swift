@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - prodvides response status check
+
 extension HTTPURLResponse {
     func isSuccess() -> Bool {
         return statusCode >= 200 && statusCode < 300

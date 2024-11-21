@@ -8,11 +8,17 @@
 import UIKit
 import SnapKit
 
+// MARK: - task table view cell that presents task completion and it's data
+
 final class TaskTableViewCell: UITableViewCell {
+    // MARK: - ID to reuse
     static let reuseID: String = UUID().uuidString
     
+    // MARK: - delegate to determine what cell is supposed to be changed
     var delegate: TaskTableViewCellDelegate!
     var indexPath: IndexPath!
+    
+    // MARK: - private properties
     private var completionStatus: Bool!
     
     private lazy var titleLabel: UILabel = {
@@ -55,6 +61,7 @@ final class TaskTableViewCell: UITableViewCell {
         return $0
     }(UIButton())
     
+    // MARK: - setup views parameters if task is not completed
     private func taskInProgressSetup() {
         titleLabel.attributedText = NSAttributedString(string: titleLabel.text!)
         titleLabel.alpha = 1.0
@@ -64,6 +71,7 @@ final class TaskTableViewCell: UITableViewCell {
         completionButton.setImage(UIImage(systemName: "circle"), for: .normal)
     }
     
+    // MARK: - setup views parameters if task is completed
     private func completedTaskSetup() {
         let attrStrikethroughStyle: [NSAttributedString.Key: Any] = [
             .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)
@@ -76,6 +84,7 @@ final class TaskTableViewCell: UITableViewCell {
         completionButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
     }
     
+    // MARK: - views initialization
     func setupCell(with item: Task) {
         backgroundColor = .clear
         contentView.isUserInteractionEnabled = false
@@ -103,11 +112,13 @@ final class TaskTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - method that provides correct cell presenting
     override func prepareForReuse() {
         super.prepareForReuse()
         self.titleLabel.attributedText = nil
     }
     
+    // MARK: - changes completion status then send a request to delegate to save changes
     @objc private func changeCompletionStatus(_ sender: UIButton) {
         completionStatus.toggle()
         completionStatus ? completedTaskSetup() : taskInProgressSetup()

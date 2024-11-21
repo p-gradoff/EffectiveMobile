@@ -31,7 +31,6 @@
 		37CE0A332CE5F2F500D6CABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CE0A2C2CE5F2F500D6CABC /* LaunchScreen.storyboard */; };
 		37CE0A342CE5F2F500D6CABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */; };
 		37CE0A362CE5F2F500D6CABC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */; };
-		37CE0A372CE5F2F500D6CABC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */; };
 		37CE0A462CE6003900D6CABC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A452CE6003900D6CABC /* StorageManager.swift */; };
 		37CE0A472CE6003900D6CABC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A452CE6003900D6CABC /* StorageManager.swift */; };
 		37CE0A502CE6069A00D6CABC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A4F2CE6069A00D6CABC /* Model.swift */; };
@@ -94,7 +93,6 @@
 		37CE0A2A2CE5F2F500D6CABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37CE0A2B2CE5F2F500D6CABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37CE0A452CE6003900D6CABC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		37CE0A4F2CE6069A00D6CABC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		37CE0A572CE6137B00D6CABC /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				37249E4F2CECC988004CE5DD /* Task.xcdatamodel */,
 				37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */,
 				37CE0A2D2CE5F2F500D6CABC /* SceneDelegate.swift */,
-				37CE0A2E2CE5F2F500D6CABC /* ViewController.swift */,
 			);
 			path = EffectiveMobile;
 			sourceTree = "<group>";
@@ -691,7 +688,6 @@
 				37249E562CEDBB07004CE5DD /* SelectedTaskConfigurator.swift in Sources */,
 				378776982CEC9CC2003CF58F /* Font.ext.swift in Sources */,
 				37CE0A6D2CE625D900D6CABC /* TaskListConfigurator.swift in Sources */,
-				37CE0A372CE5F2F500D6CABC /* ViewController.swift in Sources */,
 				37CE0A502CE6069A00D6CABC /* Model.swift in Sources */,
 				37CE0A602CE613C900D6CABC /* TaskListRouter.swift in Sources */,
 				3787769D2CECA9E5003CF58F /* UIView.ext.swift in Sources */,
