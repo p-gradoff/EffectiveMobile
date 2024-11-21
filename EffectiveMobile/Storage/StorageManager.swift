@@ -10,7 +10,7 @@ import CoreData
 
 enum UpdateFormat {
     case completion
-    case filling(String)
+    case filling(title: String, description: String)
 }
 
 enum StorageConstant {
@@ -58,7 +58,7 @@ final class StorageManager {
     }
     
     // MARK: - Create new task
-    func createTask(withID id: Int, createdAt date: String, toDo text: String, isCompleted status: Bool) {
+    func createTask(with id: Int, createdAt date: String, toDo text: String, isCompleted status: Bool) {
         guard let taskDescription = NSEntityDescription.entity(
             forEntityName: StorageConstant.get(.entityName),
             in: context
@@ -73,7 +73,7 @@ final class StorageManager {
     }
     
     // MARK: - Fetch task by ID
-    func fetchTask(byID id: Int) -> Task? {
+    func fetchTask(by id: Int) -> Task? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: StorageConstant.get(.entityName))
         let predicate = NSPredicate(format: StorageConstant.get(.idPredicate), id as CLong)
         fetchRequest.predicate = predicate
@@ -93,26 +93,26 @@ final class StorageManager {
     }
     
     // MARK: - Update task's completion status or to-do string
-    func updateTask(with parameter: UpdateFormat, by id: Int) {
-        guard let task = fetchTask(byID: id) else {
+    func updateTask(with parameter: UpdateFormat, with id: Int) {
+        guard let task = fetchTask(by: id) else {
             // MARK: - handle this error
             print("no such task")
             return
         }
         
-        print(task.completed)
         switch parameter {
         case .completion: task.completed.toggle()
-        case .filling(let toDo): task.todo = toDo
+        case .filling(let title, let description):
+            task.title = title
+            task.todo = description
         }
-        print(task.completed)
         
         saveContext()
     }
     
     // MARK: - Delete task by ID
     func removeTask(by id: Int) {
-        guard let task = fetchTask(byID: id) else {
+        guard let task = fetchTask(by: id) else {
             // MARK: - handle error
             return
         }

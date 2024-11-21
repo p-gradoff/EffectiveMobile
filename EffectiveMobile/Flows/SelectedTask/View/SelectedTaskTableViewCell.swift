@@ -8,9 +8,13 @@
 import UIKit
 import SnapKit
 
+// MARK: - a table cell that provides one of the options for interacting with the task
+
 final class SelectedTaskTableViewCell: UITableViewCell {
+    // MARK: - ID to reuse
     static let reuseID: String = UUID().uuidString
     
+    // MARK: - private properties
     private lazy var titleLabel: UILabel = {
         $0.textAlignment = .left
         $0.font = .getFont(fontType: .regular, size: 17)
@@ -22,6 +26,7 @@ final class SelectedTaskTableViewCell: UITableViewCell {
         return $0
     }(UIImageView())
     
+    // MARK: - views setup and updating
     func setupCell(with item: EditData) {
         addSubviews(titleLabel, iconView)
         

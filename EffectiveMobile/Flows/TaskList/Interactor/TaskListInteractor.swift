@@ -11,6 +11,7 @@ protocol TaskListInteractorInput: AnyObject {
     var output: TaskListInteractorOutput? { get }
     func getTasksList()
     func updateTaskCompletion(by id: Int)
+    func removeTask(by id: Int)
 }
 
 protocol TaskListInteractorOutput: AnyObject {
@@ -34,7 +35,7 @@ final class TaskListInteractor: TaskListInteractorInput {
     private func saveInitialTaskList(_ list: [RawTask]) {
         for task in list {
             StorageManager.shared.createTask(
-                withID: task.id,
+                with: task.id,
                 createdAt: Date.now.formatDate(),
                 toDo: task.todo,
                 isCompleted: task.completed
@@ -55,10 +56,8 @@ final class TaskListInteractor: TaskListInteractorInput {
                 guard let self = self else { return }
                 
                 switch result {
-                case .success(let tasksList): // convert to [Task] and save, then send
+                case .success(let tasksList):
                     saveInitialTaskList(tasksList.todos)
-                    // let taskList = getTasksFromStorage()
-                    // output?.sendTasks(from: taskList)
                 case .failure(let err):
                     output?.sendError(withMessage: NetworkError.get(err), title: err.rawValue)
                 }
@@ -70,20 +69,19 @@ final class TaskListInteractor: TaskListInteractorInput {
                 let taskList = getTasksFromStorage()
                 output?.sendTasks(from: taskList)
             }
+        } else {
+            let taskList = getTasksFromStorage()
+            output?.sendTasks(from: taskList)
         }
-//        else {
-//            let taskList = getTasksFromStorage()
-//            output?.sendTasks(from: taskList)
-//        }
-        let taskList = getTasksFromStorage()
-        output?.sendTasks(from: taskList)
     }
     
     func updateTaskCompletion(by id: Int) {
-        StorageManager.shared.updateTask(with: .completion, by: id)
+        StorageManager.shared.updateTask(with: .completion, with: id)
+    }
+    
+    func removeTask(by id: Int) {
+        StorageManager.shared.removeTask(by: id)
     }
 }
 
-extension TaskListInteractor: TaskListPresenterOutput {
-    
-}
+extension TaskListInteractor: TaskListPresenterOutput { }

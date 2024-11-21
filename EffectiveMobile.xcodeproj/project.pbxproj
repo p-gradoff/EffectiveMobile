@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103E1AA5787D54E51546FB34 /* Pods_EffectiveMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB34D8105B8772ED9D608F24 /* Pods_EffectiveMobileTests.framework */; };
 		37249E4B2CECC22F004CE5DD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37249E492CECC22F004CE5DD /* Task.swift */; };
 		37249E4D2CECC22F004CE5DD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37249E492CECC22F004CE5DD /* Task.swift */; };
 		37249E502CECC988004CE5DD /* Task.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 37249E4F2CECC988004CE5DD /* Task.xcdatamodel */; };
@@ -16,13 +17,16 @@
 		37249E5D2CEDCB3E004CE5DD /* SelectedTaskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37249E5C2CEDCB3E004CE5DD /* SelectedTaskInteractor.swift */; };
 		37249E602CEDF966004CE5DD /* EditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37249E5F2CEDF966004CE5DD /* EditData.swift */; };
 		37249E622CEE08EE004CE5DD /* SelectedTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37249E612CEE08EE004CE5DD /* SelectedTaskTableViewCell.swift */; };
-		3787768E2CEA257C003CF58F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3787768D2CEA257C003CF58F /* SnapKit */; };
 		378776922CEC9C91003CF58F /* SFUIText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 378776912CEC9C91003CF58F /* SFUIText-Bold.ttf */; };
 		378776942CEC9CA1003CF58F /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 378776932CEC9CA1003CF58F /* SFUIText-Medium.ttf */; };
 		378776962CEC9CAA003CF58F /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 378776952CEC9CAA003CF58F /* SFUIText-Regular.ttf */; };
 		378776982CEC9CC2003CF58F /* Font.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378776972CEC9CBC003CF58F /* Font.ext.swift */; };
 		3787769D2CECA9E5003CF58F /* UIView.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3787769C2CECA9E5003CF58F /* UIView.ext.swift */; };
 		3787769F2CECA9FB003CF58F /* Response.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3787769E2CECA9FB003CF58F /* Response.ext.swift */; };
+		37AF4ABE2CEEE863008EBF3C /* TaskPageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF4ABD2CEEE863008EBF3C /* TaskPageConfigurator.swift */; };
+		37AF4AC02CEEE909008EBF3C /* TaskPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF4ABF2CEEE909008EBF3C /* TaskPageView.swift */; };
+		37AF4AC22CEEEA8A008EBF3C /* TaskPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF4AC12CEEEA8A008EBF3C /* TaskPagePresenter.swift */; };
+		37AF4AC42CEEEAB9008EBF3C /* TaskPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF4AC32CEEEAB9008EBF3C /* TaskPageInteractor.swift */; };
 		37CE0A312CE5F2F500D6CABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CE0A282CE5F2F500D6CABC /* Assets.xcassets */; };
 		37CE0A332CE5F2F500D6CABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CE0A2C2CE5F2F500D6CABC /* LaunchScreen.storyboard */; };
 		37CE0A342CE5F2F500D6CABC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A272CE5F2F500D6CABC /* AppDelegate.swift */; };
@@ -42,6 +46,8 @@
 		37CE0A6B2CE6221100D6CABC /* Date.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A6A2CE6221100D6CABC /* Date.ext.swift */; };
 		37CE0A6D2CE625D900D6CABC /* TaskListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A6C2CE625D900D6CABC /* TaskListConfigurator.swift */; };
 		37CE0A7B2CE8DD5E00D6CABC /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0A7A2CE8DD5E00D6CABC /* Protocol.swift */; };
+		5E21BED27238D81C4F5795BD /* Pods_EffectiveMobile_EffectiveMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A9BB37455169255AAD2080 /* Pods_EffectiveMobile_EffectiveMobileUITests.framework */; };
+		8420F2A9CA0E037170E68C58 /* Pods_EffectiveMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC2B18ACA989301F068E6F2 /* Pods_EffectiveMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,10 @@
 		378776972CEC9CBC003CF58F /* Font.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.ext.swift; sourceTree = "<group>"; };
 		3787769C2CECA9E5003CF58F /* UIView.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.ext.swift; sourceTree = "<group>"; };
 		3787769E2CECA9FB003CF58F /* Response.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.ext.swift; sourceTree = "<group>"; };
+		37AF4ABD2CEEE863008EBF3C /* TaskPageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageConfigurator.swift; sourceTree = "<group>"; };
+		37AF4ABF2CEEE909008EBF3C /* TaskPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageView.swift; sourceTree = "<group>"; };
+		37AF4AC12CEEEA8A008EBF3C /* TaskPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPagePresenter.swift; sourceTree = "<group>"; };
+		37AF4AC32CEEEAB9008EBF3C /* TaskPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageInteractor.swift; sourceTree = "<group>"; };
 		37CE09EE2CE5F28100D6CABC /* EffectiveMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectiveMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CE0A072CE5F28400D6CABC /* EffectiveMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EffectiveMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CE0A112CE5F28400D6CABC /* EffectiveMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EffectiveMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +107,15 @@
 		37CE0A6A2CE6221100D6CABC /* Date.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.ext.swift; sourceTree = "<group>"; };
 		37CE0A6C2CE625D900D6CABC /* TaskListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListConfigurator.swift; sourceTree = "<group>"; };
 		37CE0A7A2CE8DD5E00D6CABC /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		894C2986C56EA848DF09883C /* Pods-EffectiveMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobileTests.release.xcconfig"; path = "Target Support Files/Pods-EffectiveMobileTests/Pods-EffectiveMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		98A9BB37455169255AAD2080 /* Pods_EffectiveMobile_EffectiveMobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EffectiveMobile_EffectiveMobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB34D8105B8772ED9D608F24 /* Pods_EffectiveMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EffectiveMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3D2AAAB0B16C27E56A67590 /* Pods-EffectiveMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-EffectiveMobileTests/Pods-EffectiveMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF9D143A3BCDE15B8FB8E58C /* Pods-EffectiveMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobile.debug.xcconfig"; path = "Target Support Files/Pods-EffectiveMobile/Pods-EffectiveMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		BFC0B0A88D74164436730583 /* Pods-EffectiveMobile-EffectiveMobileUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobile-EffectiveMobileUITests.debug.xcconfig"; path = "Target Support Files/Pods-EffectiveMobile-EffectiveMobileUITests/Pods-EffectiveMobile-EffectiveMobileUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2D4DD8B120ECFABA94429BD /* Pods-EffectiveMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobile.release.xcconfig"; path = "Target Support Files/Pods-EffectiveMobile/Pods-EffectiveMobile.release.xcconfig"; sourceTree = "<group>"; };
+		E19BF0CED2825F16964DE3AA /* Pods-EffectiveMobile-EffectiveMobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectiveMobile-EffectiveMobileUITests.release.xcconfig"; path = "Target Support Files/Pods-EffectiveMobile-EffectiveMobileUITests/Pods-EffectiveMobile-EffectiveMobileUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EBC2B18ACA989301F068E6F2 /* Pods_EffectiveMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EffectiveMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -117,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3787768E2CEA257C003CF58F /* SnapKit in Frameworks */,
+				8420F2A9CA0E037170E68C58 /* Pods_EffectiveMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103E1AA5787D54E51546FB34 /* Pods_EffectiveMobileTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,12 +152,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E21BED27238D81C4F5795BD /* Pods_EffectiveMobile_EffectiveMobileUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2497A6238A31748BF57C1169 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D143A3BCDE15B8FB8E58C /* Pods-EffectiveMobile.debug.xcconfig */,
+				C2D4DD8B120ECFABA94429BD /* Pods-EffectiveMobile.release.xcconfig */,
+				BFC0B0A88D74164436730583 /* Pods-EffectiveMobile-EffectiveMobileUITests.debug.xcconfig */,
+				E19BF0CED2825F16964DE3AA /* Pods-EffectiveMobile-EffectiveMobileUITests.release.xcconfig */,
+				B3D2AAAB0B16C27E56A67590 /* Pods-EffectiveMobileTests.debug.xcconfig */,
+				894C2986C56EA848DF09883C /* Pods-EffectiveMobileTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		37249E512CEDBA8A004CE5DD /* SelectedTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +179,6 @@
 				37249E582CEDC847004CE5DD /* Interactor */,
 				37249E572CEDC83E004CE5DD /* Presenter */,
 				37249E5E2CEDF939004CE5DD /* Entity */,
-				37249E592CEDC84F004CE5DD /* Router */,
 				37249E552CEDBB07004CE5DD /* SelectedTaskConfigurator.swift */,
 			);
 			path = SelectedTask;
@@ -174,13 +207,6 @@
 				37249E5C2CEDCB3E004CE5DD /* SelectedTaskInteractor.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		37249E592CEDC84F004CE5DD /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		37249E5E2CEDF939004CE5DD /* Entity */ = {
@@ -220,6 +246,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		37AF4AB72CEEE827008EBF3C /* TaskPage */ = {
+			isa = PBXGroup;
+			children = (
+				37AF4AB82CEEE82F008EBF3C /* View */,
+				37AF4ABC2CEEE847008EBF3C /* Interactor */,
+				37AF4ABB2CEEE841008EBF3C /* Presenter */,
+				37AF4ABD2CEEE863008EBF3C /* TaskPageConfigurator.swift */,
+			);
+			path = TaskPage;
+			sourceTree = "<group>";
+		};
+		37AF4AB82CEEE82F008EBF3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37AF4ABF2CEEE909008EBF3C /* TaskPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37AF4ABB2CEEE841008EBF3C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				37AF4AC12CEEEA8A008EBF3C /* TaskPagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		37AF4ABC2CEEE847008EBF3C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				37AF4AC32CEEEAB9008EBF3C /* TaskPageInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		37CE09E52CE5F28100D6CABC = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +288,8 @@
 				37CE0A0A2CE5F28400D6CABC /* EffectiveMobileTests */,
 				37CE0A142CE5F28400D6CABC /* EffectiveMobileUITests */,
 				37CE09EF2CE5F28100D6CABC /* Products */,
+				2497A6238A31748BF57C1169 /* Pods */,
+				7EB599C56E08FD13F664F964 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,7 +309,6 @@
 				37CE0A562CE6136600D6CABC /* View */,
 				37CE0A552CE6136000D6CABC /* Interactor */,
 				37CE0A542CE6135500D6CABC /* Presenter */,
-				37CE0A532CE6134200D6CABC /* Entity */,
 				37CE0A512CE6122C00D6CABC /* Router */,
 				37CE0A6C2CE625D900D6CABC /* TaskListConfigurator.swift */,
 			);
@@ -257,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				37CE0A4C2CE605D300D6CABC /* Flows */,
-				37CE0A492CE6023500D6CABC /* Constants */,
 				37CE0A412CE6000D00D6CABC /* Storage */,
 				37CE0A4D2CE6066A00D6CABC /* NetworkService */,
 				37CE0A692CE621FC00D6CABC /* Components */,
@@ -291,16 +352,10 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		37CE0A492CE6023500D6CABC /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		37CE0A4C2CE605D300D6CABC /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				37AF4AB72CEEE827008EBF3C /* TaskPage */,
 				37249E512CEDBA8A004CE5DD /* SelectedTask */,
 				37CE0A262CE5F2F500D6CABC /* TaskList */,
 			);
@@ -322,13 +377,6 @@
 				37CE0A5F2CE613C900D6CABC /* TaskListRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		37CE0A532CE6134200D6CABC /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		37CE0A542CE6135500D6CABC /* Presenter */ = {
@@ -373,6 +421,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		7EB599C56E08FD13F664F964 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBC2B18ACA989301F068E6F2 /* Pods_EffectiveMobile.framework */,
+				98A9BB37455169255AAD2080 /* Pods_EffectiveMobile_EffectiveMobileUITests.framework */,
+				AB34D8105B8772ED9D608F24 /* Pods_EffectiveMobileTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,18 +438,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CE0A1A2CE5F28400D6CABC /* Build configuration list for PBXNativeTarget "EffectiveMobile" */;
 			buildPhases = (
+				978FBAC55A7FB9231395AFA7 /* [CP] Check Pods Manifest.lock */,
 				37CE09EA2CE5F28100D6CABC /* Sources */,
 				37CE09EB2CE5F28100D6CABC /* Frameworks */,
 				37CE09EC2CE5F28100D6CABC /* Resources */,
+				FF9F50231E683E098B0D6DAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = EffectiveMobile;
-			packageProductDependencies = (
-				3787768D2CEA257C003CF58F /* SnapKit */,
-			);
 			productName = EffectiveMobile;
 			productReference = 37CE09EE2CE5F28100D6CABC /* EffectiveMobile.app */;
 			productType = "com.apple.product-type.application";
@@ -400,6 +457,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CE0A1F2CE5F28400D6CABC /* Build configuration list for PBXNativeTarget "EffectiveMobileTests" */;
 			buildPhases = (
+				69E91B39AD4C9F68CD6253F2 /* [CP] Check Pods Manifest.lock */,
 				37CE0A032CE5F28400D6CABC /* Sources */,
 				37CE0A042CE5F28400D6CABC /* Frameworks */,
 				37CE0A052CE5F28400D6CABC /* Resources */,
@@ -413,8 +471,6 @@
 				37CE0A0A2CE5F28400D6CABC /* EffectiveMobileTests */,
 			);
 			name = EffectiveMobileTests;
-			packageProductDependencies = (
-			);
 			productName = EffectiveMobileTests;
 			productReference = 37CE0A072CE5F28400D6CABC /* EffectiveMobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -423,9 +479,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CE0A222CE5F28400D6CABC /* Build configuration list for PBXNativeTarget "EffectiveMobileUITests" */;
 			buildPhases = (
+				C3E199D1C9FED14620AD1CCC /* [CP] Check Pods Manifest.lock */,
 				37CE0A0D2CE5F28400D6CABC /* Sources */,
 				37CE0A0E2CE5F28400D6CABC /* Frameworks */,
 				37CE0A0F2CE5F28400D6CABC /* Resources */,
+				6F4C5B957E869960F6A61A5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,8 +494,6 @@
 				37CE0A142CE5F28400D6CABC /* EffectiveMobileUITests */,
 			);
 			name = EffectiveMobileUITests;
-			packageProductDependencies = (
-			);
 			productName = EffectiveMobileUITests;
 			productReference = 37CE0A112CE5F28400D6CABC /* EffectiveMobileUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -474,9 +530,6 @@
 			);
 			mainGroup = 37CE09E52CE5F28100D6CABC;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				3787768C2CEA257C003CF58F /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37CE09EF2CE5F28100D6CABC /* Products */;
 			projectDirPath = "";
@@ -518,6 +571,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		69E91B39AD4C9F68CD6253F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EffectiveMobileTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F4C5B957E869960F6A61A5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile-EffectiveMobileUITests/Pods-EffectiveMobile-EffectiveMobileUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile-EffectiveMobileUITests/Pods-EffectiveMobile-EffectiveMobileUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile-EffectiveMobileUITests/Pods-EffectiveMobile-EffectiveMobileUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		978FBAC55A7FB9231395AFA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EffectiveMobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3E199D1C9FED14620AD1CCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EffectiveMobile-EffectiveMobileUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9F50231E683E098B0D6DAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile/Pods-EffectiveMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile/Pods-EffectiveMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EffectiveMobile/Pods-EffectiveMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		37CE09EA2CE5F28100D6CABC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -527,6 +683,7 @@
 				3787769F2CECA9FB003CF58F /* Response.ext.swift in Sources */,
 				37CE0A5E2CE613BE00D6CABC /* TaskListInteractor.swift in Sources */,
 				37CE0A5C2CE613B500D6CABC /* TaskListPresenter.swift in Sources */,
+				37AF4AC02CEEE909008EBF3C /* TaskPageView.swift in Sources */,
 				37CE0A632CE6147800D6CABC /* NetworkManager.swift in Sources */,
 				37CE0A362CE5F2F500D6CABC /* SceneDelegate.swift in Sources */,
 				37249E542CEDBAD9004CE5DD /* SelectedTaskView.swift in Sources */,
@@ -539,16 +696,19 @@
 				37CE0A602CE613C900D6CABC /* TaskListRouter.swift in Sources */,
 				3787769D2CECA9E5003CF58F /* UIView.ext.swift in Sources */,
 				37249E4D2CECC22F004CE5DD /* Task.swift in Sources */,
+				37AF4AC22CEEEA8A008EBF3C /* TaskPagePresenter.swift in Sources */,
 				37249E5D2CEDCB3E004CE5DD /* SelectedTaskInteractor.swift in Sources */,
 				37249E602CEDF966004CE5DD /* EditData.swift in Sources */,
 				37CE0A6B2CE6221100D6CABC /* Date.ext.swift in Sources */,
 				37CE0A7B2CE8DD5E00D6CABC /* Protocol.swift in Sources */,
 				37CE0A672CE6193500D6CABC /* LaunchManager.swift in Sources */,
 				37CE0A472CE6003900D6CABC /* StorageManager.swift in Sources */,
+				37AF4AC42CEEEAB9008EBF3C /* TaskPageInteractor.swift in Sources */,
 				37249E502CECC988004CE5DD /* Task.xcdatamodel in Sources */,
 				37249E5B2CEDC872004CE5DD /* SelectedTaskPresenter.swift in Sources */,
 				37249E622CEE08EE004CE5DD /* SelectedTaskTableViewCell.swift in Sources */,
 				37CE0A582CE6137B00D6CABC /* TaskListView.swift in Sources */,
+				37AF4ABE2CEEE863008EBF3C /* TaskPageConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,12 +758,14 @@
 /* Begin XCBuildConfiguration section */
 		37CE0A1B2CE5F28400D6CABC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF9D143A3BCDE15B8FB8E58C /* Pods-EffectiveMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T3Y57V3BSA;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EffectiveMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -625,12 +787,14 @@
 		};
 		37CE0A1C2CE5F28400D6CABC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2D4DD8B120ECFABA94429BD /* Pods-EffectiveMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T3Y57V3BSA;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EffectiveMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -771,6 +935,7 @@
 		};
 		37CE0A202CE5F28400D6CABC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3D2AAAB0B16C27E56A67590 /* Pods-EffectiveMobileTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -790,6 +955,7 @@
 		};
 		37CE0A212CE5F28400D6CABC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 894C2986C56EA848DF09883C /* Pods-EffectiveMobileTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -809,6 +975,7 @@
 		};
 		37CE0A232CE5F28400D6CABC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFC0B0A88D74164436730583 /* Pods-EffectiveMobile-EffectiveMobileUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -826,6 +993,7 @@
 		};
 		37CE0A242CE5F28400D6CABC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E19BF0CED2825F16964DE3AA /* Pods-EffectiveMobile-EffectiveMobileUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -881,25 +1049,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3787768C2CEA257C003CF58F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3787768D2CEA257C003CF58F /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3787768C2CEA257C003CF58F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 37CE09E62CE5F28100D6CABC /* Project object */;
 }

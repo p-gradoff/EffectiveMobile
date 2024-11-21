@@ -16,20 +16,22 @@ protocol TaskListViewInput: AnyObject {
 protocol TaskListViewOutput: AnyObject {
     func getTasks()
     func changeTaskCompletionStatus(by id: Int)
-    func goToSelectedTask(_ task: Task)
+    func goToSelectedTask(by id: Int)
+    func createNewTask()
+    func openTaskEditor(by id: Int)
+    func removeTask(by id: Int)
 }
 
 protocol TaskTableViewCellDelegate: AnyObject {
     func saveCompletionChanges(at indexPath: IndexPath)
 }
 
-final class TaskListView: UIViewController {
+final class TaskListView: UIViewController, UISearchResultsUpdating {
     
+    private let searchController = UISearchController(searchResultsController: nil)
     private var tableData: [Task] = []
+    private var filteredData: [Task] = []
     var output: TaskListViewOutput?
-    
-    private let blurView: UIVisualEffectView = UIVisualEffectView()
-    private let vibrancyEffect: UIVibrancyEffect = UIVibrancyEffect()
     
     private lazy var tableView: UITableView = {
         $0.backgroundColor = .clear
@@ -40,6 +42,7 @@ final class TaskListView: UIViewController {
         $0.separatorColor = .button
         $0.layoutMargins = .zero
         $0.bounces = false
+        $0.rowHeight = UITableView.automaticDimension
         $0.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.reuseID)
         return $0
     }(UITableView())
@@ -75,31 +78,50 @@ final class TaskListView: UIViewController {
         return stack
     }(UIStackView())
     
-    private let createButton: UIButton = {
+    private lazy var createButton: UIButton = {
         $0.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
         $0.contentMode = .scaleAspectFill
         $0.tintColor = .accent
+        $0.addTarget(self, action: #selector(createButtonTapped(sender: )), for: .touchDown)
         return $0
     }(UIButton())
     
+    @objc private func createButtonTapped(sender: UIButton) {
+        output?.createNewTask()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationController()
+        setupSearchController()
         setupView()
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        output?.getTasks()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = .primaryText.withAlphaComponent(0.5)
+        }
     }
     
     private func setupView() {
         view.backgroundColor = .mainTheme
-        bottomView.addSubviews(taskLabelStack, createButton)
         view.addSubviews(tableView, bottomView)
+        bottomView.addSubviews(taskLabelStack, createButton)
         
         tableView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(120)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.bottom.equalTo(bottomView.snp.top)
         }
         
         bottomView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(50)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(50)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
@@ -121,23 +143,49 @@ final class TaskListView: UIViewController {
         output?.changeTaskCompletionStatus(by: id)
     }
     
-    /*
-    private func updateViewTransparency() {
-        for view in self.view.subviews {
-            view.alpha = 0.5
-        }
+    private func setupNavigationController() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        title = "Задачи"
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
     
-    private func restoreViewTransparency() {
-        for view in self.view.subviews {
-            view.alpha = 1.0
-        }
+    private func setupSearchController() {
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "Search",
+            attributes: [
+                NSAttributedString.Key.font : UIFont.getFont(fontType: .regular, size: 17),
+                NSAttributedString.Key.foregroundColor : UIColor.button
+            ]
+        )
+        searchController.searchBar.tintColor = .primaryText
+        searchController.searchBar.searchTextField.backgroundColor = .additionTheme
+        navigationItem.searchController = searchController
     }
     
-    private func addBlur() {
-        view.addSubview(blurView)
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        filterTableData(text)
+        tableView.reloadData()
     }
-     */
+    
+    private func filterTableData(_ searchText: String) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            
+            let filtered = tableData.filter { $0.title.contains(searchText) || $0.todo.contains(searchText) }
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                filteredData = filtered
+                tableView.reloadData()
+            }
+        }
+    }
 }
 
 extension TaskListView: UITableViewDataSource, UITableViewDelegate, TaskTableViewCellDelegate {
@@ -148,29 +196,37 @@ extension TaskListView: UITableViewDataSource, UITableViewDelegate, TaskTableVie
             output?.getTasks()
         }
         taskCounter.text = String(count)
-        return count
+        if searchController.isActive && !searchController.searchBar.text!.isEmpty {
+            return filteredData.count
+        } else {
+            return tableData.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.reuseID, for: indexPath) as? TaskTableViewCell else {
             return UITableViewCell()
         }
-    
+        
         cell.indexPath = indexPath
         cell.delegate = self
-        cell.setupCell(with: tableData[indexPath.row])
+        var item: Task!
+        
+        if searchController.isActive && !searchController.searchBar.text!.isEmpty {
+            item = filteredData[indexPath.row]
+        } else {
+            item = tableData[indexPath.row]
+        }
+        cell.setupCell(with: item)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // addBlur()
-        output?.goToSelectedTask(tableData[indexPath.row])
-        // updateViewTransparency()
+        let selectedTask = tableData[indexPath.row]
+        output?.goToSelectedTask(by: selectedTask.id)
     }
     
     func saveCompletionChanges(at indexPath: IndexPath) {
-        // tableView.reloadRows(at: [indexPath], with: .none)
-        
         let id = tableData[indexPath.row].id
         resaveTask(by: id)
     }
@@ -186,19 +242,20 @@ extension TaskListView: TaskListViewInput {
 }
 
 extension TaskListView: DismissDelegate {
-    func dismissController(withAction action: EditDataRequestCollection?) {
+    func dismissController(withAction action: EditDataRequestCollection?, taskId id: Int?) {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             
-            guard let action else {
+            guard let action, let id else {
                 return
             }
             switch action {
             case .edit:
-                break
+                output?.openTaskEditor(by: id)
             case .share:
                 break
             case .remove:
+                output?.removeTask(by: id)
                 output?.getTasks()
             }
         }

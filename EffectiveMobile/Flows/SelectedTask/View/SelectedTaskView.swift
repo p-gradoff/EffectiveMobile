@@ -7,6 +7,9 @@
 
 import UIKit
 import SnapKit
+import VisualEffectView
+
+// MARK: - view that presents the selected task and provides a menu for interacting with it
 
 protocol SelectedTaskViewInput: AnyObject {
     var output: SelectedTaskViewOutput? { get set }
@@ -15,23 +18,33 @@ protocol SelectedTaskViewInput: AnyObject {
 }
 
 protocol SelectedTaskViewOutput: AnyObject {
-    func removeTask(by id: Int)
     func getEditTableData()
 }
 
+// MARK: - allows the parent controller to know which task to perform an action on
 protocol DismissDelegate: AnyObject {
-    func dismissController(withAction action: EditDataRequestCollection?)
+    func dismissController(withAction action: EditDataRequestCollection?, taskId id: Int?)
 }
 
 final class SelectedTaskView: UIViewController {
-
-    private var selectedTaskData: Task!
-    private var tableData: [EditData] = []
+    // MARK: - output  is presenter and delegate is parent controller
     weak var delegate: DismissDelegate?
     var output: SelectedTaskViewOutput?
+
+    // MARK: - private properties
+    private var selectedTaskData: Task!
+    private var tableData: [EditData] = []
+    
+    private let visualEffectView: VisualEffectView = {
+        $0.blurRadius = 10
+        $0.colorTint = .mainTheme
+        $0.colorTintAlpha = 0.3
+        $0.scale = 5
+        return $0
+    }(VisualEffectView())
     
     private lazy var contentView: UIView = {
-        $0.backgroundColor = .mainTheme.withAlphaComponent(0.5)
+        $0.backgroundColor = .clear
         $0.addGestureRecognizer(tapGestureRecognizer)
         return $0
     }(UIView())
@@ -41,8 +54,9 @@ final class SelectedTaskView: UIViewController {
         return $0
     }(UITapGestureRecognizer())
     
+    // MARK: - this controller is dismissed only when pressed outside the canvas view
     @objc private func tapGest(sender: UITapGestureRecognizer) {
-        delegate?.dismissController(withAction: nil)
+        delegate?.dismissController(withAction: nil, taskId: nil)
     }
     
     private let canvasView: UIView = {
@@ -62,6 +76,7 @@ final class SelectedTaskView: UIViewController {
         $0.font = .getFont(fontType: .regular, size: 12)
         $0.textColor = .primaryText
         $0.textAlignment = .left
+        $0.numberOfLines = .zero
         return $0
     }(UILabel())
     
@@ -96,6 +111,7 @@ final class SelectedTaskView: UIViewController {
         return $0
     }(UITableView())
     
+    // MARK: - view controller cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         modalTransitionStyle = .crossDissolve
@@ -107,13 +123,20 @@ final class SelectedTaskView: UIViewController {
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
-        updateView()
+        updateViews()
     }
     
+    // MARK: - views initialization
     private func setupView() {
         canvasView.addSubview(labelStack)
         contentView.addSubviews(canvasView, editTableView)
-        view.addSubview(contentView)
+        visualEffectView.contentView.addSubview(contentView)
+        view.addSubview(visualEffectView)
+        view.backgroundColor = .clear
+        
+        visualEffectView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -136,13 +159,15 @@ final class SelectedTaskView: UIViewController {
         }
     }
     
-    private func updateView() {
+    // MARK: - updates the data, if any
+    private func updateViews() {
         titleLabel.text = selectedTaskData.title
         descriptionLabel.text = selectedTaskData.todo
         dateLabel.text = selectedTaskData.createdAt
     }
 }
 
+// MARK: - menu tableView methods
 extension SelectedTaskView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableData.isEmpty {
@@ -161,32 +186,37 @@ extension SelectedTaskView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 44 }
     
+    // MARK: - depending on the selected cell, sends the id and the required action to the delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRowItem = tableData[indexPath.row]
         switch selectedRowItem.type {
         case .edit:
-            break
+            delegate?.dismissController(withAction: .edit, taskId: selectedTaskData.id)
         case .share:
-            delegate?.dismissController(withAction: .share)
+            delegate?.dismissController(withAction: .share, taskId: selectedTaskData.id)
         case .remove:
-            output?.removeTask(by: selectedTaskData.id)
-            delegate?.dismissController(withAction: .remove)
+            delegate?.dismissController(withAction: .remove, taskId: selectedTaskData.id)
         }
     }
 }
 
+// MARK: - gesture recognizer
 extension SelectedTaskView: UIGestureRecognizerDelegate {
+    // MARK: - this gesture works only when tapped outside the canvasView and tableView area
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         touch.view == contentView ? true : false
     }
 }
 
+// MARK: - methods that allows the view to get information
 extension SelectedTaskView: SelectedTaskViewInput {
+    // MARK: - set tableView data and reload it to show
     func setTableData(with data: [EditData]) {
         tableData = data
         editTableView.reloadData()
     }
     
+    // MARK: - set received selected task data
     func setSelectedTask(_ data: Task) {
         selectedTaskData = data
     }

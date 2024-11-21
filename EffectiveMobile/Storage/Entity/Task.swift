@@ -13,7 +13,7 @@ import CoreData
 public class Task: NSManagedObject, Identifiable {
     @NSManaged public var completed: Bool
     @NSManaged public var id: Int
-    @NSManaged public var todo: String?
+    @NSManaged public var todo: String
     @NSManaged public var title: String
     @NSManaged public var createdAt: String
 

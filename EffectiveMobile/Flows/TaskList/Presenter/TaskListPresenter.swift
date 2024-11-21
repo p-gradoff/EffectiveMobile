@@ -7,10 +7,7 @@
 
 import Foundation
 
-protocol TaskListPresenterInput: AnyObject {
-    
-}
-
+protocol TaskListPresenterInput: AnyObject { }
 protocol TaskListPresenterOutput: AnyObject { }
 
 final class TaskListPresenter {
@@ -26,7 +23,6 @@ final class TaskListPresenter {
 }
 
 extension TaskListPresenter: TaskListViewOutput {
-    
     func getTasks() {
         interactor.getTasksList()
     }
@@ -35,8 +31,20 @@ extension TaskListPresenter: TaskListViewOutput {
         interactor.updateTaskCompletion(by: id)
     }
     
-    func goToSelectedTask(_ task: Task) {
-        router.presentSelectedTask(with: task)
+    func goToSelectedTask(by id: Int) {
+        router.presentSelectedTask(by: id)
+    }
+    
+    func createNewTask() {
+        router.openTaskPage(by: nil)
+    }
+    
+    func openTaskEditor(by id: Int) {
+        router.openTaskPage(by: id)
+    }
+    
+    func removeTask(by id: Int) {
+        interactor.removeTask(by: id)
     }
 }
 

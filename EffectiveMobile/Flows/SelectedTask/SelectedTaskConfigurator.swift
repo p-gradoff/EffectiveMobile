@@ -8,15 +8,18 @@
 import Foundation
 import UIKit
 
+// MARK: - 
+
 final class SelectedTaskConfigurator {
-    static func configureSelectedTaskModule(with task: Task) -> SelectedTaskView {
+    static func configureSelectedTaskModule(by id: Int) -> UIViewController {
         let view = SelectedTaskView()
         let interactor = SelectedTaskInteractor()
         let presenter = SelectedTaskPresenter(view: view, interactor: interactor)
         
         view.output = presenter
         interactor.output = presenter
-        presenter.sendTaskData(task)
+        
+        presenter.setTask(by: id)
         
         return view
     }

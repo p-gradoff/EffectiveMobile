@@ -13,8 +13,7 @@ final class TaskTableViewCell: UITableViewCell {
     
     var delegate: TaskTableViewCellDelegate!
     var indexPath: IndexPath!
-    
-    private var completionStatus: Bool = false
+    private var completionStatus: Bool!
     
     private lazy var titleLabel: UILabel = {
         $0.font = .getFont(fontType: .medium)
@@ -57,10 +56,8 @@ final class TaskTableViewCell: UITableViewCell {
     }(UIButton())
     
     private func taskInProgressSetup() {
-        // titleLabel.attributedText = NSAttributedString(string: "")
+        titleLabel.attributedText = NSAttributedString(string: titleLabel.text!)
         titleLabel.alpha = 1.0
-        // let emptyAttributedStyle: [NSAttributedString.Key: Any] = [:]
-        // titleLabel.attributedText = NSAttributedString(string: titleLabel.text ?? "Task", attributes: emptyAttributedStyle)
         
         descriptionLabel.alpha = 1.0
         completionButton.tintColor = .button
@@ -68,10 +65,10 @@ final class TaskTableViewCell: UITableViewCell {
     }
     
     private func completedTaskSetup() {
-//        let attrStrikethroughStyle: [NSAttributedString.Key: Any] = [
-//            .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)
-//        ]
-//        titleLabel.attributedText = NSAttributedString(string: titleLabel.text ?? "Task", attributes: attrStrikethroughStyle)
+        let attrStrikethroughStyle: [NSAttributedString.Key: Any] = [
+            .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)
+        ]
+        titleLabel.attributedText = NSAttributedString(string: titleLabel.text!, attributes: attrStrikethroughStyle)
         titleLabel.alpha = 0.5
         
         descriptionLabel.alpha = 0.5
@@ -84,12 +81,12 @@ final class TaskTableViewCell: UITableViewCell {
         contentView.isUserInteractionEnabled = false
         selectionStyle = .none
         
-        completionStatus = item.completed
-        completionStatus ? completedTaskSetup() : taskInProgressSetup()
-        
         titleLabel.text = item.title
         descriptionLabel.text = item.todo
         dateLabel.text = item.createdAt
+        completionStatus = item.completed
+        
+        completionStatus ? completedTaskSetup() : taskInProgressSetup()
         
         addSubviews(completionButton, labelStack)
         
@@ -102,20 +99,17 @@ final class TaskTableViewCell: UITableViewCell {
         labelStack.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview().inset(12)
             $0.leading.equalTo(completionButton.snp.trailing).offset(8)
+            $0.trailing.equalToSuperview()
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        completionStatus = false
-        titleLabel.attributedText = nil
-        titleLabel.text = nil
+        self.titleLabel.attributedText = nil
     }
     
     @objc private func changeCompletionStatus(_ sender: UIButton) {
-        print("change state \(completionStatus)")
         completionStatus.toggle()
-        print("to state \(completionStatus)")
         completionStatus ? completedTaskSetup() : taskInProgressSetup()
         
         delegate?.saveCompletionChanges(at: indexPath)
