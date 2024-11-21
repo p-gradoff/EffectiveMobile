@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: - configures the whole module
+
 final class TaskListConfigurator {
     static func configureTaskListModule() -> UIViewController {
         let networkManager = NetworkManager()

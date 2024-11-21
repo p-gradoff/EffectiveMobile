@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+// MARK: - core data entity that contains information of the task
+
 @objc(Task)
 public class Task: NSManagedObject, Identifiable {
     @NSManaged public var completed: Bool
@@ -17,6 +19,7 @@ public class Task: NSManagedObject, Identifiable {
     @NSManaged public var title: String
     @NSManaged public var createdAt: String
 
+    // MARK: - task setup
     func setupTask(id: Int, title: String = "Task", createdAt: String, todo: String, completed: Bool) {
         self.id = id
         self.title = title

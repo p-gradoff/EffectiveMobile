@@ -55,7 +55,7 @@ final class TaskPageView: UIViewController, UITextViewDelegate {
         return $0
     }(UILabel())
     
-    // MARK: - view controller cycle
+    // MARK: - view controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .accent

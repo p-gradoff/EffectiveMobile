@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: - provides alert controller presenting to it's inheritants
+
 protocol AlertProvider {
     func getAlertController(with title: String, _ message: String) -> UIAlertController
 }

@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// MARK: - view that provides a list of all tasks, as well as a search bar for them, their count and a button for creating a new task
+
 protocol TaskListViewInput: AnyObject {
     var output: TaskListViewOutput? { get set }
     func setTableData(with data: [Task])
@@ -22,16 +24,19 @@ protocol TaskListViewOutput: AnyObject {
     func removeTask(by id: Int)
 }
 
+// MARK: - allows the table to determine by which index there were changes in the task
 protocol TaskTableViewCellDelegate: AnyObject {
     func saveCompletionChanges(at indexPath: IndexPath)
 }
 
 final class TaskListView: UIViewController, UISearchResultsUpdating {
+    // MARK: - output is presenter
+    var output: TaskListViewOutput?
     
+    // MARK: - private properties
     private let searchController = UISearchController(searchResultsController: nil)
     private var tableData: [Task] = []
     private var filteredData: [Task] = []
-    var output: TaskListViewOutput?
     
     private lazy var tableView: UITableView = {
         $0.backgroundColor = .clear
@@ -59,7 +64,7 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         return $0
     }(UILabel())
     
-    // TODO: MAKE TEXT FORMATTER
+    // TODO: make text formatter
     private lazy var taskLabel: UILabel = {
         $0.textColor = .primaryText
         $0.text = "Задач"
@@ -86,10 +91,12 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         return $0
     }(UIButton())
     
+    // MARK: - send a request to the presenter to create new task
     @objc private func createButtonTapped(sender: UIButton) {
         output?.createNewTask()
     }
     
+    // MARK: - view controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationController()
@@ -109,6 +116,7 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         }
     }
     
+    // MARK: - views initializing
     private func setupView() {
         view.backgroundColor = .mainTheme
         view.addSubviews(tableView, bottomView)
@@ -139,10 +147,7 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         }
     }
     
-    private func resaveTask(by id: Int) {
-        output?.changeTaskCompletionStatus(by: id)
-    }
-    
+    // MARK: - navigation controller setup
     private func setupNavigationController() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         title = "Задачи"
@@ -151,6 +156,7 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         navigationItem.largeTitleDisplayMode = .always
     }
     
+    // MARK: - search controller setup
     private func setupSearchController() {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
@@ -167,12 +173,14 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
         navigationItem.searchController = searchController
     }
     
+    // MARK: - method that manages table data filtering and reloading
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         filterTableData(text)
         tableView.reloadData()
     }
     
+    // MARK: - asynchronously filters the table data and then updates it
     private func filterTableData(_ searchText: String) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
@@ -188,14 +196,18 @@ final class TaskListView: UIViewController, UISearchResultsUpdating {
     }
 }
 
+// MARK: - tasks table view methods
 extension TaskListView: UITableViewDataSource, UITableViewDelegate, TaskTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // MARK: - send a request to the presenter when table data is empty to load it
         let count = tableData.count
         if count == 0 {
             output?.getTasks()
         }
         taskCounter.text = String(count)
+
+        // MARK: - display the filtered data or not depending on the search controller and search bar
         if searchController.isActive && !searchController.searchBar.text!.isEmpty {
             return filteredData.count
         } else {
@@ -210,8 +222,9 @@ extension TaskListView: UITableViewDataSource, UITableViewDelegate, TaskTableVie
         
         cell.indexPath = indexPath
         cell.delegate = self
-        var item: Task!
         
+        // MARK: - configure cell depending on search controller and search bar
+        var item: Task!
         if searchController.isActive && !searchController.searchBar.text!.isEmpty {
             item = filteredData[indexPath.row]
         } else {
@@ -221,19 +234,20 @@ extension TaskListView: UITableViewDataSource, UITableViewDelegate, TaskTableVie
         return cell
     }
     
+    // MARK: - send a request to the presenter to open selected task
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTask = tableData[indexPath.row]
         output?.goToSelectedTask(by: selectedTask.id)
     }
     
+    // MARK: - send a request to the presenter to save task with changed completion status
     func saveCompletionChanges(at indexPath: IndexPath) {
         let id = tableData[indexPath.row].id
-        resaveTask(by: id)
+        output?.changeTaskCompletionStatus(by: id)
     }
-    
 }
 
-
+// MARK: - methods that allows the view to get information
 extension TaskListView: TaskListViewInput {
     func setTableData(with data: [Task]) {
         tableData = data
@@ -241,6 +255,7 @@ extension TaskListView: TaskListViewInput {
     }
 }
 
+// MARK: - method to manage selected task dismissing and then sending a request to the presenter depending on action type by ID
 extension TaskListView: DismissDelegate {
     func dismissController(withAction action: EditDataRequestCollection?, taskId id: Int?) {
         dismiss(animated: true) { [weak self] in

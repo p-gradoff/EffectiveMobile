@@ -111,7 +111,7 @@ final class SelectedTaskView: UIViewController {
         return $0
     }(UITableView())
     
-    // MARK: - view controller cycle
+    // MARK: - view controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         modalTransitionStyle = .crossDissolve

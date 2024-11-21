@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - network model for loading data
+
 struct RawTaskList: Codable {
     let todos: [RawTask]
     let total, skip, limit: Int

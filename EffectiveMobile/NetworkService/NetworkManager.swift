@@ -11,6 +11,7 @@ protocol NetworkOutput: AnyObject {
     func doRequest(_ completion: @escaping (Result<RawTaskList, NetworkError>) -> Void)
 }
 
+// MARK: - network errors to decect error's kind
 enum NetworkError: String, Error {
     case networkError = "Network error"
     case responseError = "Response Error"
@@ -30,8 +31,10 @@ enum NetworkError: String, Error {
 }
 
 final class NetworkManager: NetworkOutput {
+    // MARK: - base url to get data
     private let basedURL: URL = URL(string: "https://dummyjson.com/todos")!
     
+    // MARK: - form request with parameters
     private func formRequest() -> URLRequest {
         var request = URLRequest(url: basedURL)
         request.httpMethod = "GET"
@@ -40,6 +43,7 @@ final class NetworkManager: NetworkOutput {
         return request
     }
     
+    // MARK: - do request by formed request
     func doRequest(_ completion: @escaping (Result<RawTaskList, NetworkError>) -> Void) {
         let request = formRequest()
         

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-// MARK: - 
+// MARK: - configures the whole module
 
 final class SelectedTaskConfigurator {
     static func configureSelectedTaskModule(by id: Int) -> UIViewController {
@@ -19,6 +19,7 @@ final class SelectedTaskConfigurator {
         view.output = presenter
         interactor.output = presenter
         
+        // starts loading the task before the view appears
         presenter.setTask(by: id)
         
         return view
