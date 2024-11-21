@@ -9,16 +9,23 @@ import Foundation
 import UIKit
 
 protocol TaskListRouterInput: AnyObject {
-    func presentSelectedTask(with task: Task)
+    func presentSelectedTask(by id: Int)
+    func openTaskPage(by id: Int?)
 }
 
 final class TaskListRouter: TaskListRouterInput {
     weak var rootViewController: UIViewController?
     
-    func presentSelectedTask(with task: Task) {
-        let selectedTaskView = SelectedTaskConfigurator.configureSelectedTaskModule(with: task)
+    func presentSelectedTask(by id: Int) {
+        let selectedTaskView = SelectedTaskConfigurator.configureSelectedTaskModule(by: id) as! SelectedTaskView
         
         selectedTaskView.delegate = rootViewController as? DismissDelegate
         rootViewController?.present(selectedTaskView, animated: true)
+    }
+    
+    func openTaskPage(by id: Int?) {
+        let taskPageView = TaskPageConfigurator.configureTaskPageModule(by: id)
+        
+        rootViewController?.navigationController?.pushViewController(taskPageView, animated: true)
     }
 }

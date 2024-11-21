@@ -1,0 +1,20 @@
+PODS:
+  - SnapKit (5.7.1)
+  - VisualEffectView (5.0.0)
+
+DEPENDENCIES:
+  - SnapKit (~> 5.7.0)
+  - VisualEffectView
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - VisualEffectView
+
+SPEC CHECKSUMS:
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  VisualEffectView: 173e1fabc2eb37af663547e14dc12efef7d2da8b
+
+PODFILE CHECKSUM: 05fc760eaa932e9f5e3a2d111fa302bc9288bfc6
+
+COCOAPODS: 1.16.2

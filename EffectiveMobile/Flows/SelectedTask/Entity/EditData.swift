@@ -7,8 +7,12 @@
 
 import Foundation
 
+// MARK: - structure for storing table view fields and their options
+
 enum EditDataRequestCollection {
-    case edit, share, remove
+    case edit
+    case share
+    case remove
 }
 
 struct EditData {

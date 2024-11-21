@@ -1,0 +1,6 @@
+framework module Pods_EffectiveMobile_EffectiveMobileUITests {
+  umbrella header "Pods-EffectiveMobile-EffectiveMobileUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

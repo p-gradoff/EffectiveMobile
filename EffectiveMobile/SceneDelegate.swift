@@ -21,8 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
         
-        let viewController = ViewController()
-        let rootViewController = TaskListConfigurator.configureTaskListModule()
+        // let viewController = ViewController()
+        let taskListViewController = TaskListConfigurator.configureTaskListModule()
+        // let taskPageView = TaskPageConfigurator.configureTaskPageModule(by: nil)
+        let rootViewController = UINavigationController(rootViewController: taskListViewController)
         self.window?.rootViewController = rootViewController
         
     }
